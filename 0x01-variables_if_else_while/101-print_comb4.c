@@ -15,19 +15,22 @@ int main(void)
 	{
 		for (tens = '0'; tens <= '9'; tens++)
 		{
-			if (!((ones == tens) || (tens > ones)))
+			for (ones = '0'; ones <= '9'; ones++)
 			{
-				putchar(tens);
-				putchar(ones);
-				if (!(ones == '9' && tens == '8'))
+				if (!((ones == tens) || (tens == hundreds) || (tens > ones) || (hundreds > tens)))
 				{
-					putchar(',');
-					putchar(' ');
+					putchar(hundreds);
+					putchar(tens);
+					putchar(ones);
+					if (!(ones == '9' && hundreds == '7' && tens == '8'))
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
 	}
-
 	putchar('\n');
 	return (0);
 }
